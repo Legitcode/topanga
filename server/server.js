@@ -13,6 +13,6 @@ io.on('connection', socket => {
   socket.emit('welcome', 'you are connected to topanga >:)')
   socket.on('username', username => socket.username = username)
 
-  socket.on('message', message => socket.broadcast.emit('message', message))
+  socket.on('message', message => socket.broadcast.emit('message', {message, user: socket.username}))
 });
 console.log('topanga running...')
